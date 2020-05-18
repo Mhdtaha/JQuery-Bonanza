@@ -20,8 +20,20 @@
             border-bottom: 4px #000 solid;
             margin-bottom: 10px;
 
-        }
 
+        }
+        #box{
+            background: darkgray;
+            color: wheat;
+            width: 500px;
+            height: 90px;
+            padding: 40px;
+            text-align: center;
+        }
+        .myClass {
+            color: blue;
+            background:black;
+        }
     </style>
 </head>
 <body>
@@ -51,13 +63,16 @@
     <div id="hidenshow">
         <button id='hide'>Hide</button>
         <button id='show'>Show</button>
-        <p id="para3"> This paragraph is weird</p>
+        <p class="para3"> This paragraph is weird</p>
 <hr>
-<div id='letusslide'><h4 id='h4'>Do you slide down?</h4></div>
+<div id="box"><h4>Do you slide down?</h4></div>
 
     <button id='slidedown'>Let's slide down</button>
+    <button id="slideup">Slide Up</button>
+    <ul id="users"></ul>
     </div>
     <script>
+        $('p.para3').addClass('myClass');
 
 $("#hide").click(function (){
     $('#para3').hide();
@@ -66,7 +81,10 @@ $('#show').click(function (){
     $('#para3').show();
 })
 $('#slidedown').click(function (){
-    $('#letusslide').slideDown(3000)
+    $('#box').slideDown(3000)
+})
+$('#slideup').click(function (){
+    $('#box').slideUp(3000)
 })
 
      $('#btnFadeOut').click(function (){
@@ -79,6 +97,11 @@ $('#slidedown').click(function (){
     $('#myDiv').text("Bonzana, what?")
     $('#myDiv').html('<h3> Bonzana, what?</h3>')
     alert($('#myDiv').text())
+
+    var myArr = ["brad", "Jose", "Maria"];
+        $.each(myArr, function(i, val){
+            $('#users').append('<li>'+val+'</li>')
+        })
     </script>
     
 </body>
